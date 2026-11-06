@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paróquia Sagrada Família - Francisco Morato | Diocese de Bragança Paulista</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5c1414;
+      --primary-dark: #3f0d0d;
+      --gold: #c59b27;
+      --bg-light: #f8f9fa;
+      --text-main: #2b2b2b;
+      --text-muted: #666;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --whatsapp-color: #25d366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .brand-title {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Barra Superior Diocesana */
+    .topbar {
+      background: var(--primary-dark);
+      color: var(--gold);
+      padding: 6px 20px;
+      font-size: 0.82rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title span {
+      font-size: 0.78rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Banner Principal */
+    .hero {
+      background: linear-gradient(rgba(92, 20, 20, 0.85), rgba(63, 13, 13, 0.9)), 
+                  url('https://images.unsplash.com/photo-1548625361-195fe712797e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: var(--white);
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #f1f1f1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Layout Principal */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    /* Tabela de Missas */
+    .time-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .time-table th, .time-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    .time-table th {
+      background: var(--bg-light);
+      color: var(--primary);
+    }
+
+    /* Lista de Informações */
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+    }
+
+    .info-list strong {
+      display: block;
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    /* Botão de WhatsApp */
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--whatsapp-color);
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      width: 100%;
+      margin-top: 10px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-whatsapp:hover {
+      opacity: 0.9;
+    }
+
+    .btn-map {
+      display: inline-block;
+      margin-top: 6px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn-map:hover {
+      text-decoration: underline;
+    }
+
+    /* Perfil do Pároco */
+    .clero-box {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+
+    .clero-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Rodapé */
+    footer {
+      background: #202020;
+      color: #aaa;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 4px solid var(--primary);
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin-bottom: 6px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .nav-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topo Institucional da Diocese -->
+  <div class="topbar">
+    Diocese de Bragança Paulista &bull; Região Pastoral de Francisco Morato
+  </div>
+
+  <!-- Cabeçalho de Navegação -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-title">
+        Paróquia Sagrada Família
+        <span>Francisco Morato - SP</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#missas">Missas</a></li>
+          <li><a href="#clero">Pároco</a></li>
+          <li><a href="#secretaria">Secretaria</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="hero">
+    <h1>Paróquia Sagrada Família</h1>
+    <p>"Jesus, Maria e José, a nossa família vossa é."</p>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+
+    <!-- Coluna Esquerda: Horários e Vida Pastoral -->
+    <section>
+      
+      <!-- Horários das Missas -->
+      <article class="card" id="missas">
+        <h2>Horários das Santas Missas</h2>
+        <table class="time-table">
+          <thead>
+            <tr>
+              <th>Dia da Semana</th>
+              <th>Horário</th>
+              <th>Local</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Segunda-feira</strong></td>
+              <td>18h00</td>
+              <td>Igreja Matriz</td>
+            </tr>
+            <tr>
+              <td><strong>Domingo</strong></td>
+              <td>A confirmar na Secretaria</td>
+              <td>Igreja Matriz</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 14px; font-size: 0.85rem; color: var(--text-muted);">
+          * Para celebrações em comunidades e dias de solenidade, confirme a escala atualizada com a secretaria.
+        </p>
+      </article>
+
+      <!-- Governo Paroquial / Pároco -->
+      <article class="card" id="clero">
+        <h2>Governo Paroquial</h2>
+        <div class="clero-box">
+          <div class="clero-avatar">P</div>
+          <div>
+            <h3 style="font-size: 1.1rem; color: var(--primary);">Pe. Wanderson da Silva Peixoto</h3>
+            <p style="font-size: 0.88rem; color: var(--gold); font-weight: 600; text-transform: uppercase;">Pároco</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+              <strong>Data de Nascimento:</strong> 21/08/1984<br>
+              <strong>Ordenação Presbiteral:</strong> 25/10/2014
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sobre a Fundação -->
+      <article class="card">
+        <h2>Dados Históricos</h2>
+        <p style="font-size: 0.95rem;">
+          Erigida canonicamente em <strong>30 de dezembro de 2022</strong>, a <strong>Paróquia Sagrada Família</strong> integra a Região Pastoral de Francisco Morato na Diocese de Bragança Paulista, servindo ao povo de Deus no Parque Paulista e comunidades vizinhas.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- Coluna Direita: Secretaria e Atendimento -->
+    <aside>
+      
+      <!-- Secretaria Paroquial -->
+      <div class="card" id="secretaria">
+        <h2>Atendimento Paroquial</h2>
+        <ul class="info-list">
+          <li>
+            <strong>Secretária</strong>
+            Renata
+          </li>
+          <li>
+            <strong>Horário de Expediente</strong>
+            Segunda a Sexta: 08h00 às 12h00 e 13h00 às 17h00<br>
+            Sábado: 08h00 às 12h00
+          </li>
+          <li>
+            <strong>Endereço</strong>
+            Avenida São Paulo, 1625<br>
+            Parque Paulista &bull; CEP 07903-200<br>
+            Francisco Morato - SP
+            <br>
+            <a href="https://www.google.com/maps/search/?api=1&query=Avenida+Sao+Paulo+1625+Parque+Paulista+Francisco+Morato+SP" target="_blank" class="btn-map">
+              &rarr; Abrir rota no Google Maps
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contato Rápido e WhatsApp -->
+      <div class="card" id="contato">
+        <h2>Canais de Contato</h2>
+        <ul class="info-list">
+          <li>
+            <strong>E-mail</strong>
+            <a href="mailto:sagradafamiliaparoquia2019@gmail.com" style="color: var(--primary); text-decoration: none; word-break: break-all;">
+              sagradafamiliaparoquia2019@gmail.com
+            </a>
+          </li>
+          <li>
+            <strong>WhatsApp Oficial</strong>
+            +55 (11) 99533-4146
+          </li>
+        </ul>
+        <a href="https://wa.me/5511995334146?text=Ol%C3%A1%2C+gostaria+de+informa%C3%A7%C3%B5es+sobre+a+Par%C3%B3quia+Sagrada+Fam%C3%ADlia." target="_blank" class="btn-whatsapp">
+          Conversar pelo WhatsApp
+        </a>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p><strong>Paróquia Sagrada Família</strong> &bull; Diocese de Bragança Paulista</p>
+    <p>Av. São Paulo, 1625 - Parque Paulista, Francisco Morato - SP</p>
+    <p>&copy; 2026 - Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
